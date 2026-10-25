@@ -2,6 +2,32 @@ import { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router";
 import { logo, whatsappUrl } from "./shared";
 
+function BrandLogo({ compact = false }: { compact?: boolean }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  if (imageFailed) {
+    return (
+      <span style={{
+        display: "inline-flex", alignItems: "center", gap: "0.45rem",
+        color: "#f0ede8", fontFamily: "'Inter',sans-serif", fontSize: compact ? "0.9rem" : "1rem",
+        fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
+      }}>
+        <span style={{ color: "#c9a96e", fontSize: compact ? "1.15rem" : "1.3rem" }}>A</span>
+        Algros
+      </span>
+    );
+  }
+
+  return (
+    <img
+      src={logo}
+      alt="Algros"
+      onError={() => setImageFailed(true)}
+      style={{ height: compact ? "28px" : "40px", width: "auto", display: "block" }}
+    />
+  );
+}
+
 export default function Layout() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -30,10 +56,7 @@ export default function Layout() {
         borderBottom: scrolled ? "1px solid rgba(201,169,110,0.1)" : "none",
       }}>
         <NavLink to="/" style={{ textDecoration: "none" }}>
-          <img src={logo} alt="Algros" style={{
-            height: scrolled ? "32px" : "40px", width: "auto",
-            transition: "height 0.4s", filter: "invert(1) brightness(10)",
-          }} />
+          <BrandLogo />
         </NavLink>
 
         <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
@@ -62,7 +85,7 @@ export default function Layout() {
         padding: "2rem 3rem",
         display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1.25rem",
       }}>
-        <img src={logo} alt="Algros" style={{ height: "28px", filter: "invert(1) brightness(10) opacity(0.28)" }} />
+        <BrandLogo compact />
         <div style={{ display: "flex", gap: "2.25rem" }}>
           {navItems.map(item => (
             <NavLink key={item.to} to={item.to} className="nav-link">{item.label}</NavLink>

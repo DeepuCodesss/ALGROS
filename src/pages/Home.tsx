@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import heroBg from "../imports/hero_bg.webm";
 import saasVideo from "../imports/SaaS_marketing_video_montage_1080p_20260913122654.webm";
+import saasVideoMp4 from "../imports/SaaS_marketing_video_montage_1080p_20260913122654.mp4";
 import { reviews, works, services, stats, useReveal, ReviewCard, VideoCard, StatCounter, jankiPoster, jmdPoster, tapovanPoster, bakerVideo, Stars, GoogleIcon, whatsappUrl } from "../shared";
 
 /* ── Cycling word ── */
@@ -138,10 +139,10 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ position: "relative", height: "100vh", minHeight: "680px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", paddingTop: "88px" }}>
-        <video src={heroBg} autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.42 }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(170deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.05) 45%, rgba(5,5,5,0.75) 100%)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, transparent 30%, rgba(5,5,5,0.7) 100%)" }} />
+      <section style={{ position: "relative", height: "100vh", minHeight: "680px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", paddingTop: "88px", background: "linear-gradient(135deg, #18130d, #050505 70%)" }}>
+        <video src={heroBg} poster={tapovanPoster} autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.58 }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(170deg, rgba(5,5,5,0.38) 0%, rgba(5,5,5,0.02) 45%, rgba(5,5,5,0.58) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, transparent 30%, rgba(5,5,5,0.48) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "0 2rem", maxWidth: "920px", width: "100%" }}>
           <h1 className="hero-display" style={{ marginBottom: "1.25rem" }}>
             <span className="hero-line-1" style={{ display: "block" }}>We Build</span>
@@ -195,8 +196,9 @@ export default function Home() {
       <section style={{ position: "relative", overflow: "hidden", background: "#020810", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}>
           <source src={saasVideo} type="video/webm" />
+          <source src={saasVideoMp4} type="video/mp4" />
         </video>
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "rgba(2,8,16,0.88)" }} />
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "rgba(2,8,16,0.68)" }} />
 
         <div style={{ background: "#c9a96e", padding: "0.65rem 0", overflow: "hidden" }}>
           <div className="marquee-track">
